@@ -19,7 +19,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Repository
 public class HibernateJobDal implements IJobDal {
 
-    private EntityManager entityManager;
+    public static EntityManager entityManager;
 
     @Autowired
     public HibernateJobDal(EntityManager entityManager) {

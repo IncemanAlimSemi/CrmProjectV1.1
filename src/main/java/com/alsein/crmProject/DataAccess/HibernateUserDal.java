@@ -5,6 +5,7 @@
 package com.alsein.crmProject.DataAccess;
 
 import com.alsein.crmProject.Entities.User;
+import java.util.List;
 import javax.persistence.EntityManager;
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,9 +28,8 @@ public class HibernateUserDal implements IUserDal {
     
     @Override
     @Transactional
-    public User getById(int id){
+    public List<User> getAll(){
         Session session = entityManager.unwrap(Session.class);
-        User user = session.get(User.class, id);
-        return user;
+        return session.createQuery("FROM User", User.class).getResultList();
     }
 }

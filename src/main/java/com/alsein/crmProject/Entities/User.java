@@ -41,7 +41,10 @@ public class User {
         this.nameOfUser = nameOfUser;
     }
 
-    private int getId() {
+    public User() {
+    }
+    
+    private int getId() { 
         return id;
     }
    

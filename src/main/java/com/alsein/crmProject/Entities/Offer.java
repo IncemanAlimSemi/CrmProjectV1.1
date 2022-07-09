@@ -30,7 +30,7 @@ public class Offer extends Base {
     public Offer() {
     }
 
-    public Offer(Date acceptDate, Boolean isAccept, Boolean isInvoice, int id, String companyName, Date date, Date endDate, String person, String comment, Boolean isDone) {
+    public Offer(int id, String companyName, Date date, Date endDate, Date acceptDate, String person, String comment, Boolean isDone, Boolean isAccept, Boolean isInvoice) {
         super(id, companyName, date, endDate, person, comment, isDone);
         this.acceptDate = acceptDate;
         this.isAccept = isAccept;

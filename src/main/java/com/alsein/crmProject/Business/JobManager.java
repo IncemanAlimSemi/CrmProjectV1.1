@@ -18,28 +18,23 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class JobManager implements IJobService {
 
-    private IJobDal jobDal;
+    public static IJobDal jobDal;
 
     @Autowired
     public JobManager(IJobDal jobDal) {
-        this.jobDal = jobDal;
-        getAll();
+        JobManager.jobDal = jobDal;
     }
 
     @Override
     @Transactional
     public List<Job> getAll() {
-    List<Job> jobs = jobDal.getAll();
-    for(Job job: jobs){
-        System.out.println(job.getCompanyName());
-    }
-        return this.jobDal.getAll();
+        return JobManager.jobDal.getAll();
     }
 
     @Override
     @Transactional
     public Job getById(int id) {
-        return this.jobDal.getById(id);
+        return JobManager.jobDal.getById(id);
     }
 
     @Override
@@ -49,12 +44,12 @@ public class JobManager implements IJobService {
 
     @Override
     public void update(Job job) {
-        this.jobDal.update(job);
+        JobManager.jobDal.update(job);
     }
 
     @Override
     public void delete(Job job) {
-        this.jobDal.delete(job);
+        JobManager.jobDal.delete(job);
     }
     
 }
